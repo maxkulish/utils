@@ -11,6 +11,8 @@ type TargetFloat struct {
 	Price CustomFloat64 `json:"price"`
 }
 
+// TestUnmarshalJSONFloat64 tests that CustomFloat64.UnmarshalJSON() returns
+// the same result as json.Unmarshal() for a float64.
 func TestUnmarshalJSONFloat64(t *testing.T) {
 	f := func(inJSON string, exp float64) {
 		t.Helper()
@@ -32,6 +34,8 @@ func TestUnmarshalJSONFloat64(t *testing.T) {
 	f(`{"id":4,"price":"7.15"}`, 7.15)
 }
 
+// TestMarshalJSONFloat64 tests that CustomFloat64.MarshalJSON() returns the
+// same result as json.Marshal() for a float64.
 func TestMarshalJSONFloat64(t *testing.T) {
 
 	jsonString := `[{"id":1,"price":2.58},
